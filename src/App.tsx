@@ -1,5 +1,7 @@
 import { useState, useMemo } from "react"
 import { AppHeader } from "@/components/AppHeader"
+import { AppFooter } from "@/components/AppFooter"
+import { HeroIntro } from "@/components/HeroIntro"
 import { PayloadInput } from "@/components/PayloadInput"
 import { OutputArea } from "@/components/OutputArea"
 import { DemoCallToAction } from "@/components/DemoCallToAction"
@@ -31,10 +33,11 @@ function App() {
   }, [rawInput, formatResult])
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="mx-auto max-w-5xl px-4">
-        <AppHeader />
-        <main className="flex flex-col gap-8">
+    <div className="flex min-h-screen flex-col bg-background text-foreground">
+      <AppHeader />
+      <main className="mx-auto w-full max-w-5xl flex-1 px-4 sm:px-6">
+        <HeroIntro />
+        <div className="flex flex-col gap-4">
           <PayloadInput
             onFormatResult={setFormatResult}
             onRawInput={setRawInput}
@@ -43,10 +46,13 @@ function App() {
             decodeResult={decodeResult}
             detectedType={detectedType}
           />
+        </div>
+        <div className="mt-10">
           <DemoCallToAction />
-          <EducationalContent />
-        </main>
-      </div>
+        </div>
+        <EducationalContent />
+      </main>
+      <AppFooter />
     </div>
   )
 }
