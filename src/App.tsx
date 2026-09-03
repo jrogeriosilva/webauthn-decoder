@@ -2,6 +2,7 @@ import { useState, useMemo } from "react"
 import { AppHeader } from "@/components/AppHeader"
 import { PayloadInput } from "@/components/PayloadInput"
 import { OutputArea } from "@/components/OutputArea"
+import { DemoCallToAction } from "@/components/DemoCallToAction"
 import { EducationalContent } from "@/components/EducationalContent"
 import { decodeFullCredential } from "@/lib/decode-orchestrator"
 import { autoDetectAndDecode } from "@/lib/payload-type-detection"
@@ -42,6 +43,7 @@ function App() {
             decodeResult={decodeResult}
             detectedType={detectedType}
           />
+          <DemoCallToAction />
           <EducationalContent />
         </main>
       </div>
